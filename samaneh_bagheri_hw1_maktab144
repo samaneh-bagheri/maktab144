@@ -1,0 +1,33 @@
+class Book:
+    counter = 0
+    def __init__(self,title,author,pages,price):
+        self.title = title
+        self.author = author
+        self.pages = pages
+        self.price = price
+        Book.counter +=1
+    def discount(self,discount_percentage):
+        discount= self.price*discount_percentage /100
+        new_price = self.price - discount
+        return new_price
+    @classmethod
+    def total(cls):
+        return cls.counter
+    @staticmethod
+    def expensive(price):
+        if price>200000:
+            return True
+        else:
+            return False
+    def information(self):
+        print(f"title = {self.title}\nauthor = {self.author}\npage ={self.pages} \nprice = {self.price} ")
+
+
+book1 = Book("bookA","ali",200,500000)
+book2 = Book("bookB","reza",400,854000)
+book3 = Book("bookC", "hamed" , 100,1200)
+print("new_price :",book1.discount(20))
+print("total_book",Book.total())
+Book.expensive(350000)
+print("it is too expensive")
+book1.information()

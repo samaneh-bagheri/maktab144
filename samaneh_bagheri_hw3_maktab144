@@ -1,0 +1,41 @@
+class Shape:
+
+    def __init__(self,name):
+        self.name = name
+
+    def area(self):   
+        return 0
+        
+    def info(self):
+        print(self.name ,"with area",self.area())
+
+class Rectangle(Shape):
+    def __init__(self,width,height):
+        Shape.__init__(self,"Rectangle")
+        self.height = height
+        self.width = width
+    def area(self):
+        return   self.width * self.height
+
+class Circle(Shape):
+    def __init__(self,radius):
+        Shape.__init__(self,"Circle")
+        self.radius = radius
+
+    def area(self):
+        return  3.14*(self.radius**2)
+
+class Square(Rectangle):
+     def __init__(self,side):
+        Rectangle.__init__(self,side,side)
+        self.name = "Square"
+
+mylist = [Square(6) ,Circle(3) ,Rectangle(4,5)]
+for item in mylist:
+     item.info()
+sq = Square(6)       
+print(isinstance (sq,Shape))
+print(issubclass(Shape ,Square))
+
+         
+
